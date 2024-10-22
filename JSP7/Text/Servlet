@@ -1,0 +1,29 @@
+
+JSP(Java Server Page): 자바코드 + HTML코드 
+
+Servlet: 웹페이지를 구축하는 자바코드
+
+  
+tomcat(서버)이 서브릿으로 변형을 도와줌 
+JSP -> 서블릿(*.java) -> 실행(*.class)
+
+애플릿 
+
+ * Servlet: 자바진영애서 웹 애플케이션 개발하기위한기술
+ * [syntax]
+ 1. javax.servlet.Servlet 인터페이스를 구현 
+ 2. (1)을 구현하지 못하는 경우 javax.servlet.http.HttpoServlet 클래스를 상속 구현
+ 3. doGet() // doPost()메소드를 구현, 매개변수로 javax.http.HttpServletRequest 
+										   javax.http.HttpServletRequest 선언
+										   
+										   
+ 4. java.io.IoException, javax.servlet.ServletException을 사용해서 에외처리 
+ 5.	web.xml(배포서술자)를 사용해서 서블릿과 URL을 매핑 
+	
+	JSP -> Servlet 규칙
+	- 스크립틀릿(<% %> -> service()안에 구현 
+	- 표현식(<%= $>) -> service()안에 out.println(로) 구현 
+	- 선언문 (<%! %>) -> Servlet 객체의 멤버변수로 구현 
+	- HTML 코드 => service()안에 out.rite()로 구현.
+	
+	

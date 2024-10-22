@@ -1,0 +1,254 @@
+JSP.txt
+
+정규태 / 백엔드
+
+출석
+입실 - HRD앱(출석체크) or 지문체크
+퇴실 - HRD앱(퇴실체크) or 지문체크
+* 신분증/내일배움카드 + 시간 + 얼굴 
+
+수업
+0910 - 1000  50수업 10분
+1010 - 1100
+1110 - 1200
+1210 - 1300
+점심시간  1300-1400
+1400 - 1450
+1500 - 1550
+1600 - 1650
+1700 - 1750
+
+자습실 운영 : 오후 0900시 까지
+
+FileZilla
+호스트 : 192.168.7.200
+Upload 폴더에 공유되는 내용 사용
+
+-----------------------------------------------------
+
+ - 프로그래밍(영어회화) vs 코딩 (ABC)
+ - 목표 (취업, 만들어보고 싶은것) 
+
+https://cafe.naver.com/learntimes
+
+ * 저장 용량단위
+    bit : 0/1을 저장하는 공간
+    byte : 1byte == 8bit
+    KB :  1KB == 1024byte (2^10)
+    MB : 1MB == 1024KB
+    GB :  1GB ==  1024MB(1024*1024KB)
+    TB :  1TB == 1024GB
+
+
+
+https://stanford.edu/~cpiech/karel/learn.html
+--------------------------------------------------------------------------------
+ - 인터넷(Internet) : 여러 통신망을 하나로 연결(inter - network)
+                         => 전 세계의 컴퓨터를 연결하는 통신망
+                         - 양방향 통신 제공 /  시간제약이 없음 / 텍스트->이미지, 음성,동영상 
+          
+- 웹(Web) : WWW(World Wide Web) 인터넷으로 연결된 사용자들이 
+              정보를 공유하는 공간
+           -  웹페이지 문서 (HTML언어) => 웹 사이트(하이퍼링크)
+             => 웹 브라우저를 사용해서 문서 확인
+
+- 서버 (Server) :  서비스, 정보를 제공하는 컴퓨터(프로그램)
+
+- 클라이언트 (Client) :  서비스,정보를 요청(제공받는) 컴퓨터(프로그램)
+
+- 통신 프로토콜 : http,https와 같은 통신 규약(약속)
+                      어떤형태의 접속, 어떤 속도, 형태
+
+- TCP / IP 프로토콜 
+
+	 [ COM 1 ]                                     [ COM 2 ]
+
+[애플리케이션 층]		<-  가상의 데이터 송수신 ->			[애플리케이션 층]
+[트랜스포트 층(TCP/UDP)]									[트랜스포트 층(TCP/UDP)]
+[네트워크 층(인터넷층 IP)]									[네트워크 층(인터넷층 IP)]
+											<-  실제 데이터 송수신 ->
+[데이터 링크 층]														[데이터 링크 층]	
+
+- IP 주소 (Internet Protocol address):  xxx.xxx.xxx.xxx    192.168.7.200
+						(0~255)
+           => 인터넷 상에서 특정 컴퓨터(호스트)를 지정하는 번호
+           => localhost (내컴퓨터) 127.0.0.1
+
+- 도메인 네임 시스템( Domain Name System, DNS)
+         => IP주소 <=> 영문자 주소
+
+- 포트번호 : 컴퓨터에는 다양한 인터넷 애플리케이션이 많음
+                1024 미만의 포트번호 사용 X
+                파일질라(FTP) : 21
+						 mysql : 3306
+                oracle : 8080
+                tomcat : 8080 => 8088  
+
+
+https://www.oracle.com/kr/java/technologies/downloads/#java11-windows
+
+
+
+ * 웹페이지 실행 과정
+ 
+   1) https://www.naver.com/ 주소줄에 입력 => 웹 브라우저에 주소 요청(request)
+   2) DNS <=> IP주소를 찾아서 네이버로 이동 
+   3) 네이버 WEB서버로 이동 
+   4) 사용자의 요청에 따른 정보를 html문서 형태로 만들어서 돌려준다. 응답(response)
+   5) DNS <=> IP주소를 찾아서 내컴퓨터로 이동
+   6) 웹브라우저를 사용해서 해당 HTML문서를 읽음
+   
+   => 정적 데이터 처리방식(html,css,javascript,이미지....)
+   
+   4-1) 동적데이터 요청시 네이버 WAS(Web Application Server)서버로 정보 요청
+   5-1) 데이터베이스(DB)에 정보 요청 
+   5-2) WEB서버로 정보 전달
+   
+   => 동적 데이터 처리방식(JSP,Servlet(JAVA),데이터베이스 정보...)
+   
+   
+   클라이언트	 <=>  WEB서버      <=>   WAS서버     <=>   DataBase 
+      요청          (정적데이터)       (동적데이터)
+   
+   
+   
+   * 변수명 만들기
+   https://www.curioustore.com/#!/util/naming
+   
+   
+   
+   
+ 	thread: process를 쪼개어 그중에 한 파트를 thread라 부름 
+	java = mulit thread지원
+	
+	
+	process vs thread 
+	
+	중요: http를 쓰는 이유 
+	
+	웹 컨네이너 tomcat: 서블릿이나 JSP 내용을 보내는데에 사용됨
+	
+	
+	
+	* JSP 지시어(Directive) p150~
+	=> 해당 페이지에 동작 실행시 참고해야하는 설정을 기록하는 방법 
+		[page, include, taglib]
+		
+		<%@ [page, include, taglib] 설정값... %>
+					  |	      |	
+					나중에 설명
+	<%@ page language="java"(언어) contentType="text/html;(환경) charset=UTF-8"(문자형태)
+    pageEncoding="UTF-8"%>
+	
+ 
+ 	* JSP 선언문(Declaration) p160~
+ 	
+ 	=> 멤버변수, 멤버 메서드 선언하는 방법
+ 	
+ 	<%! 
+ 		String name = "아이티윌"; // 멤버변수	
+ 		
+ 		public void Method(){ //멤버Method
+ 			실행문;
+ 		}
+ 		
+ 		
+ 	%>
+
+	* JSP 스크립틀릿(Scriptlet) p162~
+	=> (지역)변수, JSP코드를 사용방법 
+	<%
+		실행문;
+		
+		int a = 100;
+	%>
+	
+	* JSP 표현식(Expression)
+	 => 스크립틀릿, 선언문에서 생성된 변수, 메서드리턴값을 사용하는 방법 
+	 	(JSP 코드 -> HTML 화면에 출력)
+	 	
+	 	
+	  <%= 값 %>
+	 
+
+	class Test {
+	
+		int a; //멤버 변수(인스턴스 변수) - instance variable / 전역 변수 => 선언문
+		
+		public void method(){
+		
+			int b; // 지역변수(local variable) => 스크립틀릿 
+		
+		}
+		
+	}
+
+C:\Users\ITWILL\Desktop\Backend\workspace_jsp7\.metadata\.plugins
+\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\JSP7\org
+\apache\jsp\jsp
+
+* DataBse - JSP
+
+>mysql -u root -p 
+
+>Enter password: ****
+
+> status
+
+데이터 베이스 (생성, 삭제, 조회, 선택)
+
+조회: show databases;
+생성: create database [DBName];
+Delete: drop database [DBName];
+choose: use [DBName];
+
+Table (create, delete, 조회, 구조 확인)
+
+Create: create table [tableName] (
+		field(columnName) dataType constraints
+		field(columnName) dataType constraints
+		field(columnName) dataType constraints
+		...
+		field(columnName) dataType constraints		
+	);
+
+Delete: drop table [tableName];
+조회: show tables;
+구조 확인: desc [tableName]; //The DESC command is used to sort the data returned in descending order.
+
+---------------------------------------------------------
+
+Table data (insert, modify, delete, 조회)
+
+insert: insert into [tableName](columnName1, columnName2, ...)
+		values (value1, value2, ...);
+		
+		insert into [tableName](omission columnName)
+		values (value1, value2, ...);
+		=> 테이블의 모든 column을 순서대로 데이터 입력
+
+조회: select 컬럼명,.../ *(all) from tableName;
+
+삭제: delete from [tableName] where [condition];
+
+수정: update [tableName] set [column1=value1], [column2=value2], ... where [condition];
+
+mysql connector download tar file
+copy *.jar and paster lib 
+
+
+* 자바빈(JavaBean)/p.245:
+- 특정 규칙을 지켜서 만든 객체(Class)
+
+<JavaBean 규약>
+1. 특정 패키지에 포함되어야 함 (기본패키지 x)
+2. 기본 생성자가 있어야 한다 
+3. 멤버변수의 접근제어자는 private로 선언
+4. 멤버변수에 접근가능한 get/set 메서드를 선언 
+	(setMethod-전달인자o, getMethod-전달인자x)
+5. get/set 메서드는 public 접근 제어자를 사용 
+
+
+
+
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	// 이벤트: 클라이언트(사용자)가 웹브라우저에서 수행하는 모든동작 
+	
+	// 이벤트 핸들러: 이벤트를 처리하기위한 동작 
+	
+	function windowOpen2(){
+		window.open("http://www.naver.com","win","width=300, height=200, top=500, left=500");//왼쪽 모서리부터 (0,0) 좌표
+		// 주소, 이름, 옵션
+		window.close();
+	}
+	function windowOpen3(){
+		window.open("http://localhost:8088/JSP7/js/test1.html","","width=600, height=600");
+		// 주소, 이름, 옵션
+	}
+	
+	function function1(){
+		//document가 뭔가요? html 문서
+		alert("document 객체정보 출력");
+		//document.write();
+// 		alert(document.title);
+		alert(window.document.title);
+		alert(window.document.location);
+		//window.document.location.href = 'http://www.naver.com';
+		alert(document.bgColor);//background
+		alert(document.fgColor);//font
+	}
+	
+	function function2(color){
+		document.bgColor = color; // 백그라운드 색상
+// 		document.fgColor = "yellow"; //폰트색상	
+	}
+
+	function function3(){
+		// location 객체 
+		// window.document.<생략가능>
+		alert(window.document.location.href); // 주소정보 (URL) - 변경시 사이트 이동 
+		alert(location.protocol);// protocol:통신 방식, 규약 
+		alert(location.hostname);// host: 서버 컴퓨터의 이름(IP주소)
+		alert(location.port); //포트번호
+		
+		location.reload();// 새로고침
+	}
+	
+	function function4(){
+		// history 객체
+		//alert(history.length);
+		history.back(); //뒤로가기
+		history.forward(); //앞으로가기
+		history.go(); // 앞(+), 뒤(-)로 이동 
+	}
+
+</script>
+</head>
+<body>
+	<h1>test7.html</h1>
+	<h2> 이벤트 </h2>
+	
+	<!-- <input type="button" value="버튼1" onclick=" JS코드 작성가능 "> -->
+	<input type="button" value="버튼1" onclick=" alert('버튼1 클릭!'); ">
+	<input type="button" value="버튼2" ondblclick=" alert('버튼2 클릭!'); ">
+	<input type="button" value="버튼3" onmouseover=" alert('버튼3 마우스오버!'); ">
+	<!-- keyup을 통해 키보드가 입력을 했다는 것으로 확정 -->
+	<input type="text" onkeyup=" alert('키보드 입력!'); "> 
+	
+	<hr>
+	
+	<table border="1">
+		<tr bgcolor="yellow" onmouseover="style.background='green';" 
+							 onmouseout="style.background='yellow';">
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr bgcolor="yellow" onmouseover="style.background='green';" 
+							 onmouseout="style.background='yellow';">
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr bgcolor="yellow" onmouseover="style.background='green';" 
+							 onmouseout="style.background='yellow';">
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<input type="button" value="새창열기1" onclick="window.open();">
+	<input type="button" value="새창열기2" onclick="windowOpen();">
+	<h2> 버튼클릭 시 test1.html 페이지를 새창으로 열기(+ 새창에 닫기기능 추가)</h2>
+	<input type="button" value="새창열기3" onclick="windowOpen3();">
+	
+	<hr>
+	<h2>Document 객체</h2>
+	
+	<input type="button" value="객체 속성" onclick="function1();">
+	<input type="button" value="객체 속성변경" onclick="function2();">
+	
+	
+	<input type="radio" name="c" value="orange" onclick="function2('orange');"> orange
+	<input type="radio" name="c" value="purple" onclick="function2('purple');"> purple
+	<input type="radio" name="c" value="pink" onclick="function2('pink');"> pink
+	<br>
+	<input type="checkbox" name="c" value="pink"> pink
+	<input type="checkbox" name="c" value="pink"> pink
+	<input type="checkbox" name="c" value="pink"> pink
+	
+	<hr>
+	<input type="button" value="location 속성" onclick="function3();">
+	
+	
+	<hr>
+	<input type="button" value="history 속성" onclick="function4();">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

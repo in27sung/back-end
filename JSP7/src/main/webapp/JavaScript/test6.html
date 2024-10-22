@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 
+	데이터를 저장 공간 => 변수
+ 	실행문(코드)를 저장 => 함수 
+	
+	<기본문법>
+	function 함수명(){
+		실행코드;
+	}
+	
+	<함수의 사용>
+	//함수명();
+	*/
+	
+	/*
+	익명함수의 선언
+	
+	<기본문법>
+	var reperence(참조변수) = function(){
+		
+							  }
+	
+	<익명함수의 사용>
+	참조변수();
+	*/
+
+	// "안녕하세요! 아이티윌 입니다"
+	for(var i = 0; i < 3; i++){
+		document.write("안녕하세요! 아이티윌 입니다 <br>")
+	}
+	
+	document.write("<hr>");
+	function greeting(){
+		for(var i = 0; i < 3; i++){
+			document.write("안녕하세요! 아이티윌 입니다 <br>")
+		}
+		
+	}
+	
+	//실행
+	greeting();
+	
+	/*
+	<기본문법>
+	//parameter(매개변수) 
+	function name(매개변수1, 매개변수2, ...){
+		실행문;
+	}
+	<함수의 사용>
+	함수명(값1,값2, ...)
+	*/
+	document.write("<hr>");
+	function sayMyName(name){
+		document.write("제 이름은 " + name + "입니다 <hr> ");	
+	}
+	
+	//실행
+	sayMyName("인성");
+	
+	sayMyName("홍길동");
+	
+	// 숫자 1개를 입력해서 1 ~ 입력한 숫자 까지의 합을 출력하는 함수 
+	
+	
+	function totalSum(num){
+		var sum = 0
+		for(var i = 1; i <= num ; i++){
+			sum += i;	
+		}
+		document.write("1 ~ " + num + "의 총합은 " + sum + "입니다. <br>");
+	}
+	
+	totalSum(9);
+	
+	document.write("<hr>");
+	document.write("<h3>입력받은 숫자 1개를 홀수/짝수 인지 체크하는 함수:  <br></h3>");
+	function checkNumber(num){
+		if(num == 0){
+			document.write(num + "은 0입니다. <br>")
+		}
+		else if(num % 2 == 0){
+			document.write(num + "은 짝수입니다. <br>")
+		}
+		else{
+			document.write(num + "은 홀수입니다. <br>")			
+		}
+	}
+	
+	checkNumber(235);
+	
+	document.write("<h3>숫자 2개를 입력받아서 두 숫자의 합 출력: <br></h3>");
+	
+	function sumofTwoNumbers(num1, num2){
+		document.write(num1 + " + " + num2 + " = " + (num1 + num2) + "입니다. <br>");
+	}
+	
+	function compareTwoNumbers(num1, num2){
+		if(num1 > num2){
+			document.write(num1 + "은 " + num2 + "보다 큽니다. <br>");
+		}
+		else if(num1 < num2){
+			document.write(num1 + "은 " + num2 + "보다 작습니다. <br>");			
+		}
+		else{
+			document.write(num1 + "와 " + num2 + "는 같습니다. <br>");						
+		}
+	}
+	sumofTwoNumbers(134, 73);
+	
+	compareTwoNumbers(23565, 234);
+	
+
+	document.write("<h3>매개변수 3개 사용 10, +, 20: <br></h3>");
+	
+	function calculator(num1, operator, num2){
+		if(operator == "+"){
+			document.write(num1 + " + " + num2 + " = " + (num1 + num2) + "입니다. <br>");
+		}else if( operator == "-"){
+			document.write(num1 + " - " + num2 + " = " + (num1 - num2) + "입니다. <br>");
+		}else if( operator == "*"){
+			document.write(num1 + " * " + num2 + " = " + (num1 * num2) + "입니다. <br>");
+		}else if( operator == "*"){
+			document.write(num1 + " / " + num2 + " = " + (num1 / num2) + "입니다. <br>");
+		}
+	}
+	
+	calculator(235, "+", 643);
+	
+	function myCalculator(n1, op, n2){
+		switch(op){
+		case "+":
+			document.write("결과 : " + (n1 + n2) + "<br>");
+			break;
+		case "-":
+			document.write("결과 : " + (n1 - n2) + "<br>");
+			break;
+		case "*":
+			document.write("결과 : " + (n1 * n2) + "<br>");
+			break;
+		case "/":
+			document.write("결과 : " + (n1 / n2) + "<br>");
+			break;
+		case "%":
+			document.write("결과 : " + (n1 % n2) + "<br>");
+			break;
+		}
+	}// myCalculator(n1, op, n2) 끝
+	
+	
+	myCalculator(235, "+", 643);
+	
+	document.write("<hr>");
+	
+	function sum3(num1, num2){
+		//document.write("두 숫자의 총합: " + (num1 + num2))
+		return num1 + num2;
+	}
+	
+	document.write( sum3(100, 200) );
+	
+	var result = sum3(100,200);
+	document.write(result);
+	
+	//함수 이름(O/X), parameter(O/X), return(O/X)
+	// 함수를 쓰는 이유? 
+	// 한번에 여러개의 코드를 실행
+	// => 실행시 parameter(매개변수)를 사용 가능
+	
+	// 함수는 모든 내용을 실행하면 종료
+	// 함수는 결과를 리턴하면 실행 종료
+	
+// 	function test(){
+// 		alert("1");
+// 		return 0;
+// 		alert("2"); // 내장함수 
+// 	}
+// 	test();
+	
+	// object(객체): 눈앞에 있는 모든 대상 
+	// => 객체의 속성(변수 사용), 기능(동작)을 정의 (Method/함수) = abstraction(추상화)
+	// 새로운 제품 혹은 데이터가 계속 업데이트 되기 때문에 arrary를 지정하기 보다 기능,속성을 추가하여 사용
+	// ex) 모니터 - 모양, 색상, 사이즈, 브랜드, 가격 (속성)
+	//            - 화면출력, on/off, 명도 (기능)
+	
+	// Goal => 이미 만들어진 객체를 사용 
+	
+	
+	// Object 생성
+	// <기본 문법>
+// 	var reperence(참조변수) = new object(); :defult 
+	
+	
+	
+	
+	document.write("<h3>휴대폰객체 생성: <br></h3>");
+	// 휴대폰객체 생성
+	var phone = new Object();
+	
+	// 휴대폰의 속성을 설정
+	phone.model = "삼성 S25";
+	phone.ram = 16;
+	phone.disk = "512GB";
+	phone.colour = "black";
+	
+	// 휴대폰의 설정 정보를 확인
+	document.write("휴대폰 모델명: " + phone.model);
+	document.write("<br>")
+	document.write("휴대폰 색상: " + phone.colour);
+	
+	document.write("<hr>")
+	
+	// 아이폰 16, 파랑, ram 16, disk 512GB
+	var phone1 = new Object();
+	
+	phone1.model = "아이폰 16";
+	phone1.colour = "blue";
+	phone1.ram = 16;
+	phone1.disk = "512GB";
+	
+	
+	// LG TV객체 생성 
+	// 사이즈: 100인치, 가격: 500만원, 색상: 검정
+	
+	var LGTV = new Object();
+	
+	LGTV.size = 100;
+	LGTV.price = "500만원";
+	LGTV.colour = "black";
+	LGTV.Channel = 10;
+	LGTV.power = false; 
+	
+	// 객체의 기능(동작)
+	// 채널 변경, 음량 조절, 전원 on/off
+	
+	LGTV.chUP = function(){
+					//채널 1증가 
+					LGTV.Channel++;
+					document.write("channel: " + LGTV.Channel + "<br>");
+				}
+	
+	LGTV.chDWON = function(){
+					//채널 1감소
+					LGTV.Channel--;
+				  }
+	
+	// 티비 전원동작 처리하는 함수 
+	LGTV.OnOff = function(){
+				// if the Tv is on
+				 if(LGTV.power){
+					 // Turn off 
+					 LGTV.power = false;
+					 document.write("티비 꺼짐 <br>");
+				 }else{
+				 	LGTV.power = true;
+				 	document.write("티비 켜짐 <br>");
+				 } 
+// 				LGTV.power = !LGTV.power; //Flag 
+			}
+	
+	LGTV.OnOff()
+	
+	// 티비 채널정보를 15번으로 변경
+	LGTV.chUP();
+	LGTV.chUP();
+	LGTV.chUP();
+	LGTV.chUP();
+	LGTV.chUP();
+	
+	// 채널 변경 기능 (직접 입력)
+	
+	LGTV.changeChannel = function(remoteNumber){
+					LGTV.Channel = remoteNumber;
+					document.write("channel: " + LGTV.Channel + "<br>");
+		}
+	
+	LGTV.changeChannel(50);
+	LGTV.changeChannel(10);
+	
+	// => 내장 객체생성: String, Number, Math, Array, Date ... 
+	// => 브라우저 객체모델(BOM): 웹 브라우저 
+// 	browser object model
+	// location.href = "http://www.naver.com";
+	// => 문서객체 모델 (DOM): HTML태그 
+	
+	// 날짜, 시간 정보를 저장하는 객체: Date()
+	
+	var today = new Date(); // 현재 시간정보를 저장
+	
+	document.write(today);
+	
+	document.write("<hr>");
+	
+	var day1 = new Date(2000,1,1); // 2000년, 2월 1일( 0 = January)
+	// December = 11
+	
+	document.write(day1);
+	
+	document.write("<hr>");
+	
+	var day2 = new Date(2000,1,1,9,10,10);
+	document.write(day2);
+	
+	document.write("<hr>");
+	
+	// 2024년 9월 3일 화요일 
+	//returens the year
+	document.write(today.getFullYear() +  "년 ");
+	document.write(today.getMonth()+ 1 + "월 ");
+	document.write(today.getDate()  + "일 ");
+	document.write(dayCounter(today.getDay())); //요일 (0~6) 일~토
+	
+// 	if(today.getDay() == 2){
+// 		document.write("화요일"); // 요일 (0~6) 일~토
+// 	}
+	
+	// 요일정보를 변환하는 함수생성 (데이터 리턴)
+	// 0 ~ 6 <=> 일 ~ 토
+	
+	
+	function dayCounter(getDay){
+		var day; // 초기화 하는 이유?
+		switch (getDay) {
+			case 0:
+			day = "일요일"
+				break;
+			case 1:
+			day = "월요일"
+				break;
+			case 2:
+			day = "화요일"
+				break;
+			case 3:
+			day = "수요일"
+				break;
+			case 4:
+			day = "목요일"
+				break;
+			case 5:
+			day = "금요일"
+				break;
+			case 6:
+			day = "토요일"
+				break;		
+			}// switch
+		return day;
+	
+		}// function 
+		
+	document.write("<hr>");
+
+
+		
+	// 파리올림픽 개막일 240726일 무슨 요일인가요?
+	var day3 = new Date(2024, 6, 26);
+		
+	document.write(dayCounter(day3.getDay())); // day3 참조변수.Methods()
+	
+	document.write("<hr>");
+	// D-day 프로그램 만들기 
+	document.write(new Date() - new Date(2024, 6, 26));
+	// => 날짜 객체의 차이는 milisecond로 표시된다. 
+	// 	  1s -> 1000ms
+	//    1m -> 1000 * 60ms
+	//    1h -> 1000 * 60 * 60ms
+	//    1d -> 1000 * 60 * 60 * 24ms
+	
+	document.write("<hr>");
+	
+	document.write("<h3>D-day 생성: <br></h3>");
+	function dDay(date){
+		
+		var restOfDate = 0;
+		// Math.ceil(num): 올림
+		restOfDate = Math.ceil(date / (1000 * 60 * 60 * 24));
+		if(date > 0){
+			document.write("D-day : +" + restOfDate + "일 <br>");		
+		}else{
+			document.write("D-day : " + restOfDate + "일 <br>");		
+		}
+		
+	}
+	
+	dDay(new Date() - new Date(2024, 6, 26));
+		
+	var day4 = new Date(2024, 11, 31);
+	dDay(today - day4);
+	
+	// 연속적인 공간에 데이터를 저장
+	// Array
+	/*
+		<변수 선언>
+	
+		Memory 공간
+		[          [변수1]           [변수2]                                 ]      
+		
+		<배열 선언> //어디에 저장하고 어디가 오랫동안 비었는지 데이터 관리 -> OS역할 
+		
+		Memory
+		[         [변수1][변수2]                                             ]
+	*/
+	
+	//Arrary 생성 및 저장 
+// 	var arr = new Array();
+//	[] <- Index	
+// 	arr[0] = 100;
+// 	arr[1] = 200;
+// 	...
+// 	arr[n] = X;
+// 배열은 데이터를 저장하는 위치정보(index)를 가진다(항상 0부터 시작)
+
+	document.write("<hr>");
+	document.write("<h3>Array 생성: <br></h3>");
+	
+	var arr = new Array();
+	arr[0] = 10;
+	arr[1] = 20;
+	arr[2] = 30;
+	arr[3] = 40;
+	arr[4] = 50;
+	document.write(arr);
+	document.write("<br>");
+
+	// 배열에 포함되어 있는 데이터 => element(요소) (변수처럼 사용가능)
+	for(var i = 0; i < arr.length; i++){ // arr.length = 5
+		document.write(arr[i]);
+	}	
+	document.write("<hr>");
+	
+	// arr 배열: 가장 처음 위치 idx 값 - 0, 가장 마지막 위치 idx 값 - (arr.length - 1)
+	
+	arr.length // 5
+	
+	arr.reverse(); // 배열을 뒤집은 후 저장
+	document.write(arr);
+	
+	document.write("<br>");	
+	document.write(arr.join("@"));
+		
+	document.write("<hr>");
+	
+	// 문자객체: String 
+	// => 사실은 배열객체이다.
+	var str1 = "아이티윌,부산"; // 문자 상수 
+	var str2 = new String("ITWILL"); // 문자 객체 
+	
+	document.write(str1[0],"<br>"); // 아 
+	document.write(str1.length,"<br>"); 
+	
+	document.write("<hr>");
+	document.write("<h3>String(문자객체): </h3>");
+	
+	document.write(str1.bold(), "<br>");
+	document.write(str1.fontcolor('blue'), "<br>");
+	document.write(str1.fontsize(5),"<br>");
+	document.write(str1.fontsize(6).fontcolor('red'),"<br>");
+	document.write(str1.charAt(1),"<br>"); // == str1[1] 이
+	document.write(str1.substring(1,2),"<br>");// (from , to - 1) 이
+	document.write(str1.substring(2,3),"<br>");// (from, to - 1) 티
+	document.write(str1.substring(2,4),"<br>");// (from, to - 1) 티윌
+	// [아][이][티][윌]
+	//  0   1   2   3  
+	document.write(str1.slice(1,2),"<br>"); // (start index, end index - 1)
+	
+	document.write(str1.substr(1,2),"<br>"); // (start index, number of index)
+	// "/아/이/티/윌/,/부/산/"
+	// "/아이티윌/[0],/부산/[1]"
+	document.write(str1.split(",")[1]); //구분문자를 기준으로 문자를 배열에 나눠서 저장  
+	
+	document.write("<hr>");
+	
+	var jumin = "951127-6234567"; // 1,3 남자 2,4 여자 
+	
+	// => 사람의 성별 확인 
+	document.write("<h3>주민번호로 성별 확인: <br></h3>");
+	
+	var genderNumber = jumin.charAt(7);
+	
+	switch(genderNumber){
+		case "1":
+			document.write("남자 <br>");
+			break;
+		case "3":
+			document.write("남자 <br>");
+			break;
+		case "2":
+			document.write("여자 <br>");
+			break;
+		case "4":
+			document.write("여자 <br>");
+			break;
+		default:
+			document.write("잘못된 주민번호 입니다.")
+	}
+	
+	document.write("<hr>");
+	document.write("<h3>전화번호 *생성:<br></h3>");
+	
+	var tel = "010-1234-1234"
+	
+	
+// 	for(var i = 0; i < tel.length; i++){
+// 		if(i == 4 || i == 5 || i == 6 || i == 7){
+// 			tel.insert(i, "*");
+// 		}
+// 		document.write(tel[i]);
+// 	} ???
+	
+// 	document.write(tel); 
+
+	var lastNumber = tel.substring(9,13);
+	
+	document.write("ㅇㅇㅇ님의 전화번호 010-***-" + lastNumber);
+	
+	document.write("<hr>");
+	
+	// 수학객체(Math) : 수학에 관련된 기능객체
+	
+	// Random() : 0 <= X < 1 실수중에서 랜덤값을 리턴하는 함수
+	//alert(Math.floor(Math.random()*10 + 1)); // 1~10 랜덤 숫자
+	
+	// 0 <= Math.random() < 1 // 0 ~ 0.999999999999999
+	// 0 * 10 <= Math.random() * 10 < 1 * 10 // 0 ~ 9.999999999999999
+	// Math.floor(0) * 10 + 1 <= Math.floor(Math.random() * 10 + 1) < 1 * 10 + 1 // 1 ~ 10
+	// 
+	
+	// 숫자 찾기 게임
+	// 1 ~ 100 랜덤한 숫자 1개를 선택
+	// => 정답 입력 (prompt)
+	// => 정답 체크 - 입력값, 정답 크기비교후 결과를 알려줌
+	//                입력 < 정답 "더 큰값을 입력하세요"
+	//                입력 > 정답 "더 작은 값을 입력하세요"
+	//                입력 == 정답 "정답입니다."
+	
+	// 랜덤번호 생성
+	var quizNumber = Math.floor(Math.random() * 100) + 1;
+	 alert("문제 : " + quizNumber);
+	
+	 var cnt = 0;
+	
+	do{
+		// 번호 입력받기
+		var answer = prompt("정답을 입력하세요");
+		cnt++; //???
+				
+		if(answer < quizNumber){
+			alert("더 큰값을 입력해주세요.");
+		}else if(answer > quizNumber){
+			alert("더 작은값을 입력해주세요.");
+		}else{
+			alert("정답입니다. 도전횟수 : " + cnt + "회");	
+			break;
+		}
+	}while(quizNumber = answer);
+	
+	
+
+	document.write("<hr>");
+	document.write("<hr>");
+	document.write("<hr>");
+	document.write("<hr>");
+	document.write("<hr>");
+	
+</script>
+</head>
+<body>
+	<h1>test6.html</h1>
+	
+	<h2> Function(Method)</h2>
+</body>
+</html>

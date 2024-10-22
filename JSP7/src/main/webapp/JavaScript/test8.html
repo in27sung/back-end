@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//document 객체 - form객체(태그)
+	
+	function function1(){
+		alert("form태그의 정보 확인");
+		alert(document.forms[0]);
+		// 폼태그는 document안에 배열의 형태로 저장됨 
+		console.log(document.forms[0]); //console안에 log 확인 가능
+		alert(document.forms[0].action);
+		alert(document.forms[0].method);
+		
+		document.forms[0].action = "아이티윌.html";
+		document.fr.action = "아이티윌.html";
+	}
+
+	function function2(){
+		// 폼태그 속성 변경
+		// actinon주소 -> 아이티윌.html, method ->
+		document.forms[0].action = "아이티윌.html";
+		document.fr.method = "get";
+		// 아이디 입력확인
+		if(document.fr.id.value == ""){
+			alert("아이디를 입력해주세요.");
+			document.fr.id.focus();
+			return;
+		}
+		// 비밀번호 입력확인
+		if(document.fr.pw.value.length == 0){
+			alert("비밀번호를 입력해주세요.");
+			document.fr.pw.focus();
+			return;			
+		}
+		
+		document.fr.submit();
+	}
+	
+	function function3(){
+		alert("submit");
+		// 서브밋 버튼을 클릭했을때 처리할 동작 
+		document.fr.action = "서브밋.html";
+		document.fr.metod = "get";
+		
+		// onsubmit="return function3();"
+		// 아이디 입력확인
+		if(document.fr.id.value == ""){
+			alert("아이디를 입력해주세요.");
+			document.fr.id.focus();
+			return false;
+		}
+		// 비밀번호 입력확인
+		if(document.fr.pw.value.length == 0){
+			alert("비밀번호를 입력해주세요.");
+			document.fr.pw.focus();
+			return flase;			
+		}
+		
+		// 정규표현식 객체 Regular expression
+		// https://regexr.com/
+		//var regex = new RegExp("pattern", "option");
+		//var regex = /패턴/옵션/;
+		
+// 		var data = "HTML CSS jquery JSP DB";
+// 		var regex = new RegExp("JS2");
+// 		var regex = /JavaScript/;
+		var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/; // i for regardless the upper and lower case 
+		
+		var result = regex.test(data); // check the vaule is inside of data
+		
+		alert(result); // 패턴에 만족하는 값이 있는지 없는지 판별
+		
+		
+		
+	}// function 3
+	
+	function function4(){
+		// input tag에 대한 접근
+	 	alert(document.fr.id);// fr: foarm tag name
+	 	//console.log(document.fr.id);
+		alert(document.fr.id.type);
+		alert(document.fr.id.name);
+		alert(document.fr.id.value); //입력시 입력데이터가 나옴 
+		
+		if(document.fr.id.value == ""){
+			alert("아이디를 입력하세요!");
+		}
+		
+		// 데이터 유효성체크
+		var idValue = document.fr.id.value;
+		if(idValue == ""){
+			alert("아이디를 입력하세요!");
+			document.fr.id.focus(); //입력 커서와 테두리가 생김 
+			document.fr.id.blur(); // remove focus 
+			return; // 함수의 종료 
+		}
+		if(idValue.length <= 8){
+			alert(" 아이디는 8자리 이상 입력해야합니다.");
+		}
+			
+		
+		
+	}
+	
+	// 비동기화: 서버와 나의 화면이 달라도 됨 
+	// 동기화: 서버와 나의 화면이 같음
+	
+	
+</script>
+</head>
+<body>
+	<h1>test8.html</h1>
+	
+	<h3> 폼태그는 정보를 입력받아서 전송하는 목적</h3>
+	
+	<!-- * 폼태그를 사용해서 전달하는 정보(parameter) 
+		 * 폼태그에서 정보를 input태그를 사용해서 입력받는다
+		 * input태그는 항상 name속성값이 있어야함 	
+		 
+		 GET 방식: 정보를 주소줄(URL)에 전달하는 방식
+		 			데이터 길이제한(256byte)
+		 			빠른 전송속도
+		 			body가 필요가 없음 
+		 			중요데이터 노출될 수 있음(보안상 취약) 
+		 	ex) www.itwillbs.co.kr?name=값&이름=값&name=값...
+		 	
+		 
+		 POST 방식: body를 사용하여 정보를 전달하는 방식 (주소줄x)
+		 			데이터 길이제한 없음 
+		 			느린 전송속도 
+		 			중요 데이터 노출 x(보안상 우수)
+		 			
+	-->
+	<fieldset>
+		<legend> 폼태그 만들기 </legend>	
+		<!-- <form action="정보를 전달할 페이지주소" method="전달방식 (get/post)"> -->
+		<form action="itwill.html" method="post" name="fr" onsubmit="return function3();"><!-- 속성 --> 
+			아이디 : <input type="text" name="id" value = ""> <br> <!-- value(자동입력) -->
+			비밀번호 : <input type="password" name="pw"> <br>
+			
+			
+			
+			
+			<input type="submit" onclick="alert('click')"><!-- submit버튼 (클릭, 전송) -->
+			
+			<hr>
+			<input type="button" value="폼태그 속성" onclick="function1();">
+			<input type="button" value="속성 변경(미입력 방지)" onclick="function2();">
+			<input type="button" value="input tag 속성" onclick="function4();">
+			
+						
+		</form>
+	</fieldset>
+	
+	
+	
+	
+</body>
+</html>

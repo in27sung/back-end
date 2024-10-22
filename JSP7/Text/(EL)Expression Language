@@ -1,0 +1,64 @@
+	
+	WEB-INK > lib > TAGlibs (jar file) copy
+	library install 
+	
+	EL(Expression Language) 표현식/ p510
+	
+	EL 표현식 ${ }: JSP코드 <%= %>(JSP 표현식), out.println();를 대신해서 사용
+	
+	${변수명 / 객체이름.변수명 / (리턴값이 있는)메서드명()} 
+	
+	
+	<%=student.name%> x -> <%=student.getName()%> o
+							 ^
+	${student.name} 가능 -----| = 같음 
+	
+	
+	
+	* EL 표현식의 내장객체 
+	  PageScope
+	  requestScope
+	  sessionScope
+	  applicationScope 
+	  -> 각각의 영역에 접근가능한 객체 (JSP 영역객체와 연결)
+	  
+	  param (request.getParameter()), paramValues(request.getparameterValues()) 
+	  -> 파라메터 정보에 접근가능한 객체 
+	  
+	  cookie
+	  
+	  header 
+	  headerValues
+	  initParam 
+	  pageContext: project에대한 접근을 할 수 있도록 함 
+	  
+	  * EL 연산자 
+	  	. : 객체 접근 연산자 
+	   [] : 배열/리스트 객체 접근 연산자 
+	   () : 연산의 우선순위 변경 
+  x? a:b  : 삼항연산자 
+  
+  		- 산술연산자 
+  		  + - * / (div) %(mod) 
+  		  
+  		- 논리연산자 
+  		  && (and) ||(or)  !(not)
+  		  
+  		- 비교연산자
+  		  ==(eq)  !=(ne)  <(lt)  >(gt)  <=(le)   >=(ge)
+  		 
+  		 
+	JSPL(JSP Standard Tag Library): 자카트라(회사)에서 제공하는 기능
+						자주 사용하는 기능을 태그형태로 모아놓은 커스텀태그 라이브러리 
+	p.519~
+	
+	- core 라이브러리: 기본적인 코드의 기능제공
+		(변수, 조건문, 반복문, 페이지 이동...)
+	- formatting 라이브러리: 형식의 데이터를 생성 
+	
+	- DB/XML
+	
+	** 반드시 사용전에 필요한 등록동작 추가 
+	<%@ taglib prefix="" uri="" %>
+  		  
+	  

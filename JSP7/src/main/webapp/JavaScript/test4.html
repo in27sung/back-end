@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	// if statement(조건문):
+	// 	if(조건식){
+	// 		조건식이 참일때, 실행할 코드 
+	// 	}
+	
+	var num1 = 100;
+	
+	if (num1 > 0){
+		
+		document.write("The value is bigger than 0")
+	}
+	if (num1 < 0){
+		document.write("The valuse is less than 0")
+	}
+	document.write("<br>")
+
+	
+	// 절대값: +/- 부호를 제거한 숫자 자체
+	// |10| == 10
+	// |-10| == 10
+	
+	var num2 = 200
+	var num3 = -54;
+	if (num2 > 0){
+		document.write("|", num2,"| = ", num2);
+	}
+	else{
+		document.write("|", num2,"| = ", -num2);
+	}
+	document.write("<br>");
+
+	if (num3 < 0){
+		// 음수 -> 양수로 변경 
+		num3 = -num3;
+	}
+	document.write("절대값: ", num3);
+
+	document.write("<br>");
+	
+	(num3 > 0)? document.write(num3) : document.write(-num3);
+	document.write("<br>");
+	document.write((num3 > 0)? num3 : -num3 )
+	document.write("<br>");
+	
+	document.write("<hr>");
+
+	
+	if (true){
+		document.write("안녕하세요!<br>");
+	}
+	// Boolean( ) : 0, null, undefined 값이 들어오면 false
+	// 나머지는 true 
+	
+	// if문에 형태가 비교연산이 아닌경우 
+	// Boolean()값을 입력한 형태의 결과와 동일함 
+	
+	if(0){
+		document.write("안녕하세요0<br>!");
+	}
+	if(1){ // 1 == true
+		document.write("안녕하세요1!<br>");
+	}
+	
+	// 사용자에게 질문에 대한 답변을 받을 수 있음 
+// 	var data = prompt("아이디를 입력하세요!");
+	
+// 	alert(data);
+	
+	// "OOO"님 환영합니다! 메세지출력
+	// 	if (data != null && data != "") { // null: 취소, "": 공백문자
+	// 		alert(data + "님 환영합니다!");
+	// 	}else
+	// 		alert("Error");
+	
+	//if - else 구문 
+	// 	if (조건문){
+	// 		조건문이 참 일때 실행코드;
+	// 	}
+	// 	else{
+	// 		조건문이 참일때를 제외한 나머지 상황에 실행하는 코드;
+	// 	}
+	
+	// 숫자의 값이 양수, 음수 체크해서 출력
+	document.write("<hr>");
+	
+	var num1 = prompt("숫자를 입력하세요.");
+	
+	if (num1 > 0){
+		document.write(num1,"의 값은 양수입니다.<br>");
+	}else if (num1 < 0){
+		document.write(num1, "의 값이 음수입니다.<br>");
+	}else{
+		document.write(num1, "의 값이 0입니다.<br>");
+	}
+	
+	
+	if (num1 % 2 == 0){
+		document.write(num1,"의 값은 짝수입니다.<br>");
+	}
+	else{
+		document.write(num1,"의 값은 홀수입니다.<br>");
+		}
+		
+	// if - elseif 
+	/*
+		if(조건문1){
+			조건문1이 true일때 실행하는 코드
+		}
+		else if(조건문2){
+			조건문2가 true일때 실행
+		}
+		else{
+			앞의 조건을 모두 속하지 않을 때
+		}
+	*/
+	document.write("<hr>");
+	document.write(" <h3>정수 확인 프로그램 v1.0</h3>");
+	// 변수 num1값이 '정수'인가 확인
+	var num1 = "안녕";
+	
+	if(num1 > 0){
+		document.write(num1, "은 양수 입니다. <br>");
+	}
+	else if(num1 < 0){
+		document.write(num1, "은 음수 입니다., <br>");
+	}
+	else if(num1 == 0){
+		document.write(num1, "입니다. <br>");
+	}
+	else{
+		document.write(num1, "은 정수가 아닙니다. <br>");		
+	}
+	
+	document.write("<hr>");
+	
+	// 학생의 등급을 출력
+	// 100~90 A, 89~80 B, 79~70 C, 69~60 D, 59~0 F
+	// 	var score = 87;
+	document.write(" <h3>학점등급 전환 프로그램 v1.0</h3>");
+	
+	var score = prompt(" 점수를 입력 하시오.")
+	
+// 	if(score >= 90 && score <= 100){
+// 		document.write("학생은 A등급 입니다. <br>");
+// 	}
+// 	else if(score >= 80 && score <= 89){
+// 		document.write("학생은 B등급 입니다. <br>");
+// 	}
+// 	else if(score >= 70 && score <= 79){
+// 		document.write("학생은 C등급 입니다. <br>");
+// 	}
+// 	else if(score >= 60 && score <= 69){
+// 		document.write("학생은 D등급 입니다. <br>");		
+// 	}
+// 	else if(score >= 0 && score <= 59){
+// 		document.write("학생은 F등급 입니다. <br>");		
+// 	}
+// 	else{
+// 		document.write("점수의 등급을 측정할 수 없습니다. <br>");
+// 	}
+	var scoreTmp = Math.floor(score / 10);
+	var grade
+	
+	switch (scoreTmp){ //변수안에 숫자, 문자만 입력 가능. 비교연산(조건식) 사용x
+		case 10:
+// 			document.write("학생은 A등급 입니다. <br>");
+// 			break; (지울 수 있음)
+		case 9:
+			grade = 'A';
+			break;
+		case 8:
+			grade = 'B';
+			break;
+		case 7:
+			grade = 'C';
+			break;
+		case 6:
+			grade = 'D';
+			break;
+		default:
+			grade = 'F';		
+		}
+		document.write("학생은", grade,"등급 입니다. <br>");
+	
+	document.write("<hr>");
+	
+	// 4계절: 봄(3~5월) 여름(6~8월) 가을(9~11월) 겨울(12~2월) 
+	document.write(" <h3>계절 확인 프로그램 v1.0</h3>");
+	
+	var month = 12;
+		
+	if(month > 12 || month <= 0){
+		document.write(" 1~12월 까지 정보만 입력 해주세요. <br>");		
+	}
+	else if(month >= 3 && month <= 5){
+		document.write(month, "월은 봄 입니다. <br>");		
+	}
+	else if(month >= 6 && month <= 8){
+		document.write(month, "월은 여름 입니다. <br>");		
+	}
+	else if(month >= 9 && month <= 11){
+		document.write(month, "월은 가을 입니다. <br>");		
+	}
+	else if(month == 12 || month <= 2){
+		document.write(month, "월은 겨울 입니다. <br>");		
+	}else{
+		document.write("1~12월 까지 정보만 입력 해주세요. <br>");
+	}
+	
+	// 중첩 if문
+// 	if(조건문){
+// 		조건이 참일 때
+// 		if(조건문2){
+// 			조건이 참일 때
+// 			...
+// 		}
+// 	}
+	
+	// 로그인 처리 로직
+	// 1) 아이디, 비밀번호 입력
+	// 2) 아이디, 비밀번호 기존에 가입된 정보(DataBase)랑 비교
+	// 3) 비교 로직
+	//           아이디 비교 
+	//          O           X
+	//	비밀번호 비교	   else ----> 비회원 or 오타 
+	//  O           X
+	// 로그인	비밀번호 오류 
+	
+	// 기존회원 정보
+	
+// 	document.write("<h3>로그인 프로그램 v1.0.</h3>");
+	var Id = prompt("아이디를 입력해주세요");
+	var Pw = prompt("비밀번호를 입력해주세요");
+	
+	var DBID = "itwill";
+	var DBPW = "1234";
+	
+	if(Id == DBID){
+		if(Pw == DBPW){
+			alert("로그인 성공");
+		}else{
+			alert("비밀번호가 아이디와 일치하지 않습니다.");			
+		}
+	}else{
+		alert("등록 되는 않은 아이디 입니다.");					
+	}
+	
+	
+	// 선택문
+	// 변수의 값에 따른 case 구문을 실행
+	// break문을 만나면 종료 || 모든 코드실행 시 종료 || default 구문 실행하면 종료
+	
+// 	switch(변수){
+// 		case 값1:
+// 			실행문;
+// 			break; //break문이 없는 경우 다음 break문을 만날때 까지 모든 코드 실행 
+// 		case 값2:
+// 			실행문;
+// 			break;
+// 			...
+// 		default:
+// 			실행문;
+// 	}
+	
+	
+	document.write("<hr>");
+	var num = 9;
+	
+	switch (num){ //변수안에 숫자, 문자만 입력 가능. 비교연산(조건식) 사용x
+		case 11:
+			document.write(" 입력값은 11 입니다. <br>");
+			break;
+		case 10:
+			document.write(" 입력값은 10 입니다. <br>");
+			break;
+		case 9:
+			document.write(" 입력값은 9 입니다. <br>");
+			break;
+		case 8:
+			document.write(" 입력값은 8 입니다. <br>");
+			break;
+		case 7:
+			document.write(" 입력값은 7 입니다. <br>");
+			break;
+		case 6:
+			document.write(" 입력값은 6 입니다. <br>");
+			break;
+		default:
+			document.write(" default: 입력값 없음!");
+	}
+// 	location.href=""; 페이지 이동
+	var url = prompt("주소를 입력하세요")
+	
+// 	if(url == "naver" || url == "네이버" || url == "NAVER"){
+// 		location.href="http://www.naver.com/";
+// 	}
+// 	else if(url == "google" || url == "구글" || url == "GOOGLE"){
+// 		location.href="http://www.google.com/";
+// 	}
+// 	else if(url == "nate" || url == "네이트" || url == "NATE"){
+// 		location.href="http://www.nate.com/";
+// 	}else{
+// 		alert("등록되지 않은 주소 입니다.");
+// 	}
+	
+	switch(url){
+		case "spdlqj":
+		case "naver":
+		case "네이버":	
+		case "NAVER":
+// 			location.href="http://www.naver.com/";
+			url = "http://www.naver.com/"
+			break;
+		case "google":
+		case "구글":
+		case "GOOGLE":
+// 			location.href="http://www.google.com/";
+			url = "http://www.google.com/"
+			break;
+		case "nate":
+		case "네이트":
+		case "NATE":
+// 			location.href="http://www.nate.com/";
+			url = "http://www.nate.com/"	
+			break;
+		default:
+			alert("등록되지 않은 주소 입니다.");
+	}
+// 	location.href = url;
+	
+</script>
+</head>
+<body>
+	<h1>test4.html</h1>
+	
+	<h2> 제어문 : 프로그램의 흐름을 제어하는 실행문 </h2>
+	<h2> (조건문 (if statement, else, elseif), 선택문(switch-case), 반복문(for, while, do-while) )</h2>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
