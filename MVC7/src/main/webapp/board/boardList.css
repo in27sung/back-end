@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+
+#container {
+    width: 100%; /* Full width of the page */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f58220;
+    color: white;
+    padding: 14px;
+}
+
+/* Header title */
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+input[type="button"] {
+	background-color: transparent; /* No background */
+	color: #555555; /* Neutral dark grey text */
+	padding: 12px 12px 0px; /* Keep padding for clickable area */
+	border: none; /* Remove border */
+	font-size: 16px; /* Readable font size */
+	cursor: pointer; /* Pointer on hover */
+/* 	margin: 10px; Space between buttons */
+	transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+input[type="button"]:hover {
+/* 	color: #ffcc99; Light pastel orange on hover */
+	font-weight: bold;
+	color: #f58220; /* Added hover color change */
+}
+
+#page-list {
+	padding-top: 3em;
+	padding-bottom: 3em;
+	text-align: center;
+/* 	background-color: #f9f9f9; Light background for contrast */
+	margin: 0 auto; /* Center the element */
+	width: 80%; /* Set width to make it responsive */
+/* 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); Add shadow for depth */
+/* 	border-radius: 8px; Rounded corners for a modern look */
+}
+
+a {
+/* 	color: #e69d75; */
+	text-decoration: none;
+	padding: 12px 14px;
+	transition: font-weight 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+a:hover {
+	font-weight: bold;
+	color: #f58220; /* Added hover color change */
+}
+
+table {
+	width: 100%; /* Set the table to take full width of the container */
+	border-collapse: collapse; /* Merge borders for cleaner look */
+	margin: 20px 0; /* Add some spacing above and below the table */
+}
+
+table th, table td {
+	border: 1px solid #ddd; /* Add subtle borders for table cells */
+	padding: 12px 15px; /* Space inside table cells */
+	text-align: center; /* Center the text */
+}
+
+table th {
+	background-color: #f58220; /* Highlight the header row */
+	color: white;
+	font-weight: bold;
+}
+
+table td {
+	background-color: #fff;
+}
+
+table tr:nth-child(even) {
+	background-color: #f9f9f9; /* Alternate row color for readability */
+}
+
+table tr:hover {
+	background-color: #f0e5da; /* Row hover effect */
+}
+
+/* Styling the separator */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}

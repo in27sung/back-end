@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource 
+		name = "jdbc/mvc"
+		auth = "Container"
+		type = "javax.sql.DataSource"
+		driverClassName = "com.mysql.cj.jdbc.Driver"
+		url = "jdbc:mysql://localhost:3306/jspdb"
+		username = "root"
+		password = "Dlstjd1915"
+		maxWait = "5000"
+		maxActive = "8"
+	/>
+
+</Context>

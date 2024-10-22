@@ -1,0 +1,169 @@
+MVC.txt 
+
+/pp.556-560
+model1 방식
+-> 기존 개발 방식, jsp코드를 사용하여 정보(DB)접근, 출력 
+-> 화면, 로직을 병행해서 개발X 
+
+Context root = Project name 
+
+MVC (model2방식 개발)
+	-> 새로운 개발방식, 화면과 처리로직을 분리해서 개발 (연결도구)
+	-> Model View Controller 패턴 
+	
+	Model(POJO): 비지니스 로직, 처리하는 코드/ ~pro.jsp동작, DB연결처리 -> JAVA파일
+	Plain Old Java Object: 상속받지 않은 순수 자바 코드
+	
+	View: 화면 처리코드 / ~form.jsp, 출력페이지 -> JSP파일
+	
+	Controller: 비지니스 로직과 화면을 연결하는 동작 -> Servlet파일 
+	
+	-> '분업' => '관심사의 분리' -> 좋은코드, 프로젝트 
+	
+	
+* MVC 패턴의 실행 
+	
+	<MODEL1>
+	사용자의 요청 <-> JSP <-> DB 
+	
+	<MODEL2>
+	사용자의 요청 -> FrontController(Servlet) <-> Controller <-> Model(JAVA) <-> DB 
+		^			    |
+		|				|
+		+------------View(JSP)
+	
+	
+	
+* 게시판 Board - CRUD 만들기 
+	
+	- 게시판 글쓰기 
+	
+	- 게시판 목록(리스트) + 페이징 처리 
+	
+	- 특정 게시판 글 읽기(본문내용보기)
+	
+	- 게시판 정보 수정 
+	
+	- 게시판 정보 삭제 
+	
+	- 답글 쓰기 
+	
+	- 첨부파일 업로드/다운로드 
+	
+	- 댓글 (비동기 방식처리)  
+	
+	
+<Front Controller>
+	1. controller 
+	
+	2. doget do post
+	
+	3. mapping (web.xml)
+	
+	
+* 커넥션풀 (CP, Connection pool): 데이터베이스와 연결된 커넥션정보를 미리 생성하고 pool 속에 저장 
+	필요할 때 마다 pool에 접근해서 연결객체를 하나씩 사용하고 반납 -> 웹 개발시 필수 작업
+	- 만약에 연결객체가 없을때는 연결반납을 기다린다. 
+	- 일정시점(시간)지나면, 새로운 연결객체를 생성 
+
+	(기존방식 - 필요할때마다 디비 연결 -> 비효율적)
+	
+	https://commons.apache.org
+	https://mvnrepository.com
+	commons-pool2
+	
+/WEB-INF/lib 폴더에 가져오기 (DB connection pool jar file)
+	commons-collections4-4.5.0-M2.jar
+   	https://commons.apache.org/collections/download_collections.cgi
+   	
+   	commons-pool2-2.12.0.jar
+   	https://mvnrepository.com/artifact/org.apache.commons/commons-pool2/2.12.0
+   	
+   	commons-dbcp2-2.12.0.jar
+   	https://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi
+   	
+   	
+	
+<context.xml>
+tag comment 사용x
+	
+	
+	container = tomcat server 
+	
+	
+context.xml 파일 -> 디비연결 정보를 저장 (1회 저장)
+ 
+<Context> - 프로젝트 정보 
+	<Resource  - 특정 데이터 
+		name = "jdbc/mvc" - 데이터 이름 
+		auth = "Container" - 관리자: 서버(tomcat)
+		type = "javax.sql.DataSource" - 데이터를 자바코드로 사용할때 데이터 
+		driverClassName = "com.mysql.cj.jdbc.Driver" - 드라이버 주소 
+		url = "jdbc:mysql://localhost:3306/jspdb" - DB주소 
+		username = "root" - 아이디 
+		password = "Dlstjd1915" - 비밀번호 
+		maxWait = "5000" - 커넥션을 위한 최대 대기시간 5초 
+		maxActive = "8" - 동시에 사용가능한 커넥션 개수 
+	/>
+
+</Context>
+	
+	
+ URL v4로 바꾸기 
+-Djava.net.preferIPv4Stack=true
+
+
+
+* 게시판 답글 처리로직(알고리즘)
+
+re_ref: 답글의 그룹번호, 일반글일때, 글 번호(bno==re_ref) 동일  
+		답글일때 메인글의 re_ref값과 동일 
+
+re_lev: 답글의 레벨값(들여쓰기), 일반글일때 = 0, 메인글의 답글 = 메인글 re_lev + 1 
+
+re_seq: 답글의 순서값, 일반글일 때 0, 답글일 때 = 메인글의 re_seq 값 + 1
+
+
+ bno		subject 	re_ref		re_lev		re_seq 
+ --------------------------------------------------------
+ 1		 	일반글1		1			0			0
+ 2 			일반글2		2			0			0
+ 3			일반글3		3			0			0
+ 4			답글3-1		3			1			1
+ 5			답글3-2		3			1			1
+ 6			답글3-1-1    3			2			2
+		
+ [order by re_ref desc, re_seq asc]
+	-> 만약, ref값이 같으면서 seq값이 같을 때 나머지 seq + 1
+ bno		subject 		re_ref		re_lev		re_seq 
+ --------------------------------------------------------
+ 9			일반글4			9			0			0
+ 3			일반글3			3			0			0
+ 7			re:답글3-2       3			1			1
+ 8			>re:답글3-2-1		3			2			2
+ 4			re:답글3-1		3			1			1 + 1 + 1
+ 5			>re:답글3-1-1		3			2			2 + 1 + 1
+ 2			일반글2			2			0			0
+ 6			re:답글2-1		2			1			1
+ 1			일반글1			1			0			0
+
+
+
+
+* 파일 업로드 / p305
+	jar: java 아카이브 
+	[cos.jar] - 
+	
+http://www.servlets.com
+https://mvnrepository.com
+
+
+
+
+
+
+
+
+
+
+
