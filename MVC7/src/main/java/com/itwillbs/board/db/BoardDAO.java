@@ -25,7 +25,7 @@ public class BoardDAO {
 	private String sql = "";
 	
 	// DB connecting information - getConnectionX()
-	public Connection getConnection() throws Exception {
+	public Connection getConnectionX() throws Exception {
 
 		// DB information
 		final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -45,7 +45,7 @@ public class BoardDAO {
 	}// getConnectionX()
 	
 	// DB connecting information - getConnection()
-	public Connection getConnectionX() throws Exception {
+	public Connection getConnection() throws Exception {
 		// 커넥션 풀을 사용한 디비 연결
 		// 연결 정보 - /META-INF/context.xml
 		// JNDI(Java Naming and Directory Interface)
