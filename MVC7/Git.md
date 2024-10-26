@@ -1,5 +1,32 @@
-Username: Insung
-UserEmial: in27sung@gmail.com
+<!-- Github img -->
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://editor.analyticsvidhya.com/uploads/765900ba9-article-200807-github-gitguardbody-text.jpg" width="50">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="50">
+ <img alt="OCTOCAT" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="50">
+</picture>
+<!-- Git img -->
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRms9wSs4B3MX8KyIau9BorTyIpL9L7_I1Mjg&s" width="70">
+ <source media="(prefers-color-scheme: light)" srcset="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRms9wSs4B3MX8KyIau9BorTyIpL9L7_I1Mjg&s" width="70">
+ <img alt="OCTOCAT" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRms9wSs4B3MX8KyIau9BorTyIpL9L7_I1Mjg&s" width="70">
+</picture>
+
+<!-- Collapsed section -->
+<details>
+<summary>My information</summary>
+<!-- Table -->
+	
+| User Name | User Email |
+|----------:|------------------|
+|  Insung   |in27sung@gmail.com|
+
+</details>
+
+
+---
+> QUOTE: IF WE PULL TOGETHER AND COMMIT OURSELVES, THEN WE CAN PUSH THROUGH ANYTHING.
+
+- Mona the Octocat
 
 
 * 깃 사용자 정보 등록 
