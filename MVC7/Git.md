@@ -29,13 +29,13 @@
 - Mona the Octocat
 
 
-* 깃 사용자 정보 등록 
+## 깃 사용자 정보 등록
 
 > git config —global user.email “이메일주소”
 > git config —global user.name “이름”
 
 
-* git 기초 개념 
+## git 기초 개념
 repository: 저장소(관리되는 파일이 존재하는 공간)
 
 
